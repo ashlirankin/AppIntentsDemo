@@ -12,8 +12,11 @@ struct CompleteTaskIntent: AppIntent {
     
     static var title: LocalizedStringResource = "Complete Task"
     
-    @Parameter(title: "title")
+    @Parameter(title: "Date")
     var date: Date
+    
+    @Parameter(title: "Task")
+    var task: TodoTask
     
     func perform() async throws -> some IntentResult {
         return .result()

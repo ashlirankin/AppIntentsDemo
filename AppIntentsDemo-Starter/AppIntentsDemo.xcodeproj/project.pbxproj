@@ -15,6 +15,8 @@
 		2EE0E3CE2B02934F0072369D /* PersistenceController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0E3CD2B02934F0072369D /* PersistenceController .swift */; };
 		2EE0E3D12B0299770072369D /* TodoTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0E3D02B0299770072369D /* TodoTask.swift */; };
 		2EE0E3D32B029BC80072369D /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0E3D22B029BC80072369D /* TaskManager.swift */; };
+		2EE0E3D62B02B8CB0072369D /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0E3D52B02B8CB0072369D /* TodoListView.swift */; };
+		2EE0E3D82B02B95A0072369D /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0E3D72B02B95A0072369D /* AddTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		2EE0E3CD2B02934F0072369D /* PersistenceController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController .swift"; sourceTree = "<group>"; };
 		2EE0E3D02B0299770072369D /* TodoTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTask.swift; sourceTree = "<group>"; };
 		2EE0E3D22B029BC80072369D /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		2EE0E3D42B02A6C50072369D /* AppIntentsDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppIntentsDemo.entitlements; sourceTree = "<group>"; };
+		2EE0E3D52B02B8CB0072369D /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		2EE0E3D72B02B95A0072369D /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,7 @@
 		2EE0E3B82B0286B30072369D /* AppIntentsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2EE0E3D42B02A6C50072369D /* AppIntentsDemo.entitlements */,
 				2EE0E3CF2B0294110072369D /* Models */,
 				2EE0E3CA2B0288AF0072369D /* Intents */,
 				2EE0E3C72B0288970072369D /* Application */,
@@ -83,6 +89,7 @@
 			children = (
 				2EE0E3B92B0286B30072369D /* AppIntentsDemoApp.swift */,
 				2EE0E3BB2B0286B30072369D /* ContentView.swift */,
+				2EE0E3D92B02B9900072369D /* Tasks */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -101,6 +108,15 @@
 				2EE0E3D02B0299770072369D /* TodoTask.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2EE0E3D92B02B9900072369D /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				2EE0E3D52B02B8CB0072369D /* TodoListView.swift */,
+				2EE0E3D72B02B95A0072369D /* AddTaskView.swift */,
+			);
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +192,9 @@
 				2EE0E3D32B029BC80072369D /* TaskManager.swift in Sources */,
 				2EE0E3CE2B02934F0072369D /* PersistenceController .swift in Sources */,
 				2EE0E3D12B0299770072369D /* TodoTask.swift in Sources */,
+				2EE0E3D82B02B95A0072369D /* AddTaskView.swift in Sources */,
 				2EE0E3BC2B0286B30072369D /* ContentView.swift in Sources */,
+				2EE0E3D62B02B8CB0072369D /* TodoListView.swift in Sources */,
 				2EE0E3CC2B0288C20072369D /* CompleteTaskIntent.swift in Sources */,
 				2EE0E3BA2B0286B30072369D /* AppIntentsDemoApp.swift in Sources */,
 			);
@@ -309,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppIntentsDemo/AppIntentsDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppIntentsDemo/Preview Content\"";
@@ -338,6 +357,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppIntentsDemo/AppIntentsDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppIntentsDemo/Preview Content\"";

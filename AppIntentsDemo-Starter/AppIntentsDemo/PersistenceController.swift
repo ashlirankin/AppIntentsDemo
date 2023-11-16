@@ -1,5 +1,5 @@
 //
-//  PersistenceController .swift
+//  PersistenceController.swift
 //  AppIntentsDemo
 //
 //  Created by Ashli Rankin on 11/13/23.
@@ -21,13 +21,25 @@ final class PersistenceController {
         if !fileManager.fileExists(atPath: path.path()) {
             do {
                 try fileManager.createDirectory(at: containerURL, withIntermediateDirectories: true, attributes: nil)
-
             }
         }
 
         do {
             var items: [T] = try readAllItems(at: path)
             items.append(item)
+            let data = try JSONEncoder().encode(items)
+            try data.write(to: path)
+        }
+    }
+    
+    func writeItems<T: Codable>(at path: URL, _ items: [T]) throws {
+        if !fileManager.fileExists(atPath: path.path()) {
+            do {
+                try fileManager.createDirectory(at: containerURL, withIntermediateDirectories: true, attributes: nil)
+            }
+        }
+
+        do {
             let data = try JSONEncoder().encode(items)
             try data.write(to: path)
         }
@@ -56,14 +68,8 @@ final class PersistenceController {
         }
     }
     
-    func removeItem<T: Codable & Identifiable>(at path: URL, with identifier: any Hashable, of type: T.Type) throws {
-        var items: [T] = try readAllItems(at: path)
-        items.removeAll(where: { $0.id == identifier as! T.ID } )
-        print(items)
-        try items.forEach { item in
-            try writeItem(at: path, item)
-        }
-      
+    func removeItem(at path: URL) throws {
+        try fileManager.removeItem(at: path)
     }
 }
 

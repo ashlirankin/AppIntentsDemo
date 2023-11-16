@@ -66,15 +66,17 @@ final class TaskManager: NSObject, ObservableObject {
         return []
     }
     
-    func markTaskAsComplete(identifier: UUID) {
+    func markTaskAsComplete(task: TodoTask) {
         do {
-            guard var task: TodoTask = try persistenceController.readItem(at: .tasksPath, with: identifier) else {
-                self.error = .unableToRead
-                return
-            }
+            
+            var task = task
             task.isComplete = true
-            try persistenceController.removeItem(at: .tasksPath, with: task.id, of: TodoTask.self)
-            try persistenceController.writeItem(at: .tasksPath, task)
+            
+            var tasks = tasks
+            tasks.removeAll(where: { $0.id == task.id })
+            tasks.append(task)
+
+            try persistenceController.writeItems(at: .tasksPath, tasks)
             fetchTasks()
         } catch {
             self.error = .unableToWrite

@@ -24,7 +24,7 @@ struct TodoListView: View {
             Group {
                 List(taskManager.tasks, id: \.id) { task in
                     Button {
-                        taskManager.markTaskAsComplete(identifier: task.id)
+                        taskManager.markTaskAsComplete(task: task)
                     } label: {
                         HStack {
                             Image(systemName: task.isComplete ? "multiply.square" : "square")

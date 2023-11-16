@@ -36,6 +36,7 @@ struct AddTaskView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         TaskManager.shared.addTask(TodoTask(id: UUID(), title: taskText, createDate: taskDate))
+                        dismiss()
                     } label: {
                         Image(systemName: "checkmark")
                     }

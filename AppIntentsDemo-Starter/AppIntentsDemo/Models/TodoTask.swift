@@ -12,18 +12,14 @@ struct TodoTask: Codable, Identifiable  {
     
     let id: UUID
     
+    /// The title of the task.
     let title: String
     
-    let createDate: Date
+    /// The date the task will be excepted.
+    let executionDate: Date
     
-    var isComplete: Bool
-    
-    init(id: UUID = UUID(), title: String, createDate: Date, isComplete: Bool = false) {
-        self.id = id
-        self.title = title
-        self.createDate = createDate
-        self.isComplete = isComplete
-    }
+    /// Indicates if the task has been completed
+    var isComplete: Bool = false
 }
 
 extension TodoTask: AppEntity {
@@ -55,7 +51,7 @@ extension TodoTask: AppEntity {
            
             let foundTasks: [TodoTask] = await taskManager.fetchTasks()
             let filteredTasks: [TodoTask] = foundTasks.filter { task in
-                task.createDate >= startDate &&  task.createDate < endDate
+                task.executionDate >= startDate &&  task.executionDate < endDate
             }
             return filteredTasks
         }

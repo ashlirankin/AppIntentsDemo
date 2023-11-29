@@ -27,15 +27,13 @@ struct AddTaskView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("", systemImage: "xmark") {
-                        taskDate = .now
-                        taskText = ""
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        TaskManager.shared.addTask(TodoTask(id: UUID(), title: taskText, createDate: taskDate))
+                        TaskManager.shared.addTask(TodoTask(id: UUID(), title: taskText, executionDate: taskDate))
                         dismiss()
                     } label: {
                         Image(systemName: "checkmark")

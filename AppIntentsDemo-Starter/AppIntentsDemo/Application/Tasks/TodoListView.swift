@@ -31,7 +31,7 @@ struct TodoListView: View {
                             VStack(alignment: .leading) {
                                 Text(task.title)
                                     .strikethrough(task.isComplete)
-                                Text(task.createDate, formatter: Self.taskDateFormat)
+                                Text(task.executionDate, formatter: Self.taskDateFormat)
                                     .foregroundStyle(.secondary)
                                     .font(.caption)
                                     .strikethrough(task.isComplete)

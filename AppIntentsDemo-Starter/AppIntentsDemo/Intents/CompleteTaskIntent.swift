@@ -18,7 +18,11 @@ struct CompleteTaskIntent: AppIntent {
     @Parameter(title: "Task")
     var task: TodoTask
     
+    private let taskManager = TaskManager.shared
+    
+    @MainActor
     func perform() async throws -> some IntentResult {
+        taskManager.markTaskAsComplete(task: task)
         return .result()
     }
 }

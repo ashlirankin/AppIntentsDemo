@@ -51,7 +51,7 @@ extension TodoTask: AppEntity {
            
             let foundTasks: [TodoTask] = await taskManager.fetchTasks()
             let filteredTasks: [TodoTask] = foundTasks.filter { task in
-                task.executionDate >= startDate &&  task.executionDate < endDate
+                task.executionDate >= startDate &&  task.executionDate < endDate && !task.isComplete
             }
             return filteredTasks
         }
